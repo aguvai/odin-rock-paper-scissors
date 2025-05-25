@@ -11,7 +11,7 @@ function getHumanChoice() {
     return prompt("Rock, paper, or scissors?");
 }
 
-function sendResultMessage(result, humanChoice, computerChoice) {
+function sendResultMessage(result) {
     if (result == "humanWon") {
         console.log(`You won! ${humanChoice} beats ${computerChoice}.`)
     } else if (result == "humanLost") {
@@ -22,18 +22,39 @@ function sendResultMessage(result, humanChoice, computerChoice) {
 }
 
 function playRound(humanChoice, computerChoice) {
-    switch(humanChoice.toLowerCase()) {
+    switch(humanChoice.toLowerCase()) { 
         case "rock":
-            sendResultMessage("humanWon", humanChoice, computerChoice)
+            if (computerChoice == "rock") {
+                sendResultMessage("tie");
+            } else if (computerChoice == "paper") {
+                sendResultMessage("humanLost");
+            } else if (computerChoice == "scissors") {
+                sendResultMessage("humanWon");
+            }
             break;
         case "paper":
-            sendResultMessage("humanLost", humanChoice, computerChoice)
+            if (computerChoice == "rock") {
+                sendResultMessage("humanWon");
+            } else if (computerChoice == "paper") {
+                sendResultMessage("tie");
+            } else if (computerChoice == "scissors") {
+                sendResultMessage("humanLost");
+            }
             break;
         case "scissors":
-            sendResultMessage("tie", humanChoice, computerChoice)
+            if (computerChoice == "rock") {
+                sendResultMessage("humanLost");
+            } else if (computerChoice == "paper") {
+                sendResultMessage("humanWon");
+            } else if (computerChoice == "scissors") {
+                sendResultMessage("tie");
+            }
             break;
     }
 
 }
 
-playRound(getHumanChoice(), getComputerChoice())
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+playRound(humanChoice, computerChoice)
