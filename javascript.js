@@ -1,5 +1,5 @@
-let humanScore = 0;
-let computerScore = 0;
+let humanChoice = null
+let computerChoice = null
 
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
@@ -21,40 +21,48 @@ function sendResultMessage(result) {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    switch(humanChoice.toLowerCase()) { 
-        case "rock":
-            if (computerChoice == "rock") {
-                sendResultMessage("tie");
-            } else if (computerChoice == "paper") {
-                sendResultMessage("humanLost");
-            } else if (computerChoice == "scissors") {
-                sendResultMessage("humanWon");
-            }
-            break;
-        case "paper":
-            if (computerChoice == "rock") {
-                sendResultMessage("humanWon");
-            } else if (computerChoice == "paper") {
-                sendResultMessage("tie");
-            } else if (computerChoice == "scissors") {
-                sendResultMessage("humanLost");
-            }
-            break;
-        case "scissors":
-            if (computerChoice == "rock") {
-                sendResultMessage("humanLost");
-            } else if (computerChoice == "paper") {
-                sendResultMessage("humanWon");
-            } else if (computerChoice == "scissors") {
-                sendResultMessage("tie");
-            }
-            break;
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
+        switch(humanChoice.toLowerCase()) { 
+            case "rock":
+                if (computerChoice == "rock") {
+                    sendResultMessage("tie");
+                } else if (computerChoice == "paper") {
+                    sendResultMessage("humanLost");
+                } else if (computerChoice == "scissors") {
+                    sendResultMessage("humanWon");
+                }
+                break;
+            case "paper":
+                if (computerChoice == "rock") {
+                    sendResultMessage("humanWon");
+                } else if (computerChoice == "paper") {
+                    sendResultMessage("tie");
+                } else if (computerChoice == "scissors") {
+                    sendResultMessage("humanLost");
+                }
+                break;
+            case "scissors":
+                if (computerChoice == "rock") {
+                    sendResultMessage("humanLost");
+                } else if (computerChoice == "paper") {
+                    sendResultMessage("humanWon");
+                } else if (computerChoice == "scissors") {
+                    sendResultMessage("tie");
+                }
+                break;
+        }
     }
 
+    for (i = 0; i <= 4; i++) {
+        humanChoice = getHumanChoice();
+        computerChoice = getComputerChoice();
+
+        playRound(humanChoice, computerChoice);
+    }
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-
-playRound(humanChoice, computerChoice)
+playGame();
