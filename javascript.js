@@ -1,6 +1,9 @@
 let humanChoice = null
 let computerChoice = null
 
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
 
@@ -14,17 +17,23 @@ function getHumanChoice() {
 function sendResultMessage(result) {
     if (result == "humanWon") {
         console.log(`You won! ${humanChoice} beats ${computerChoice}.`)
+
+        humanScore++;
     } else if (result == "humanLost") {
         console.log(`You lost! ${computerChoice} beats ${humanChoice}.`)
+
+        computerScore++;
     } else if (result == "tie") {
         console.log(`It's a tie! The computer and the human both chose ${humanChoice}.`)
     }
+
+    console.log(`Current score:
+        Computer: ${computerScore}
+        Human: ${humanScore}
+        `);
 }
 
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-
     function playRound(humanChoice, computerChoice) {
         switch(humanChoice.toLowerCase()) { 
             case "rock":
