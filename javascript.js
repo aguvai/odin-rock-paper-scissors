@@ -66,12 +66,11 @@ function playGame() {
         }
     }
 
-    for (i = 0; i <= 4; i++) {
-        humanChoice = getHumanChoice();
-        computerChoice = getComputerChoice();
 
-        playRound(humanChoice, computerChoice);
-    }
+    humanChoice = getHumanChoice();
+    computerChoice = getComputerChoice();
+
+    playRound(humanChoice, computerChoice);
 }
 
 playGame();
