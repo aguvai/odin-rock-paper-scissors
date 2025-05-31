@@ -14,6 +14,20 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
+function announceWinner() {
+    let winner = "";
+    if (humanScore >= 5) {
+        winner = "human"
+    } else {
+        winner = "computer"
+    }
+
+    resultMessageText.textContent = `Round over! The ${winner} won.`
+
+    humanScore = 0;
+    computerScore = 0;
+}
+
 function sendResultMessage(result) {
     let resultMessage = null;
     
@@ -29,7 +43,11 @@ function sendResultMessage(result) {
         resultMessage = `It's a tie! The computer and the human both chose ${humanChoice}.`
     }
 
-    resultMessageText.textContent = resultMessage;
+    if (humanScore >= 5 || computerScore >= 5) {
+        announceWinner()
+    } else {
+        resultMessageText.textContent = resultMessage;
+    }
 
     humanScoreText.textContent = humanScore;
     computerScoreText.textContent = computerScore;
