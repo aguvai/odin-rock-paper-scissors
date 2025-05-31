@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 50px;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+
+    background-color: lightgray;
+    border-radius: 8px;
+
+    padding: 20px
+}
+
+.results h2,
+.results h3 {
+    margin: 0px;
+}
+
+.results h3 {
+    font-size: 50px;
+}
+
+.roundResults {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.buttonSelection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.selection {
+    border-style: none;
+    width: 125px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgb(255, 149, 117);
+    padding: 8px;
+}
