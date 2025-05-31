@@ -33,44 +33,40 @@ function sendResultMessage(result) {
         `);
 }
 
-function playGame() {
-    function playRound(humanChoice, computerChoice) {
-        switch(humanChoice.toLowerCase()) { 
-            case "rock":
-                if (computerChoice == "rock") {
-                    sendResultMessage("tie");
-                } else if (computerChoice == "paper") {
-                    sendResultMessage("humanLost");
-                } else if (computerChoice == "scissors") {
-                    sendResultMessage("humanWon");
-                }
-                break;
-            case "paper":
-                if (computerChoice == "rock") {
-                    sendResultMessage("humanWon");
-                } else if (computerChoice == "paper") {
-                    sendResultMessage("tie");
-                } else if (computerChoice == "scissors") {
-                    sendResultMessage("humanLost");
-                }
-                break;
-            case "scissors":
-                if (computerChoice == "rock") {
-                    sendResultMessage("humanLost");
-                } else if (computerChoice == "paper") {
-                    sendResultMessage("humanWon");
-                } else if (computerChoice == "scissors") {
-                    sendResultMessage("tie");
-                }
-                break;
-        }
+function playRound(humanChoice, computerChoice) {
+    switch (humanChoice.toLowerCase()) {
+        case "rock":
+            if (computerChoice == "rock") {
+                sendResultMessage("tie");
+            } else if (computerChoice == "paper") {
+                sendResultMessage("humanLost");
+            } else if (computerChoice == "scissors") {
+                sendResultMessage("humanWon");
+            }
+            break;
+        case "paper":
+            if (computerChoice == "rock") {
+                sendResultMessage("humanWon");
+            } else if (computerChoice == "paper") {
+                sendResultMessage("tie");
+            } else if (computerChoice == "scissors") {
+                sendResultMessage("humanLost");
+            }
+            break;
+        case "scissors":
+            if (computerChoice == "rock") {
+                sendResultMessage("humanLost");
+            } else if (computerChoice == "paper") {
+                sendResultMessage("humanWon");
+            } else if (computerChoice == "scissors") {
+                sendResultMessage("tie");
+            }
+            break;
     }
-
-
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
-
-    playRound(humanChoice, computerChoice);
 }
 
-playGame();
+
+humanChoice = getHumanChoice();
+computerChoice = getComputerChoice();
+
+playRound(humanChoice, computerChoice);
