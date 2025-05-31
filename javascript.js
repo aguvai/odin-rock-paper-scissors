@@ -70,3 +70,11 @@ humanChoice = getHumanChoice();
 computerChoice = getComputerChoice();
 
 playRound(humanChoice, computerChoice);
+
+const selections = document.querySelectorAll(".selection");
+
+selections.forEach(element => {
+    element.addEventListener("click", () => {
+        alert(element.textContent);
+    })
+});
