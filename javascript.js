@@ -10,17 +10,13 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function getHumanChoice() {
-    return prompt("Rock, paper, or scissors?");
-}
-
 function sendResultMessage(result) {
     if (result == "humanWon") {
-        console.log(`You won! ${humanChoice} beats ${computerChoice}.`)
+        console.log(`You won - ${humanChoice} beats ${computerChoice}!`)
 
         humanScore++;
     } else if (result == "humanLost") {
-        console.log(`You lost! ${computerChoice} beats ${humanChoice}.`)
+        console.log(`You lost - ${computerChoice} beats ${humanChoice}.`)
 
         computerScore++;
     } else if (result == "tie") {
@@ -65,16 +61,22 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-
-humanChoice = getHumanChoice();
-computerChoice = getComputerChoice();
-
-playRound(humanChoice, computerChoice);
-
 const selections = document.querySelectorAll(".selection");
 
 selections.forEach(element => {
     element.addEventListener("click", () => {
-        alert(element.textContent);
+        switch (element.textContent.toLowerCase()) {
+            case "rock":
+                humanChoice = "rock";
+                break;
+            case "paper":
+                humanChoice = "paper";
+                break;
+            case "scissors":
+                humanChoice = "scissors";
+                break;
+        }
+        computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
     })
 });
