@@ -4,6 +4,10 @@ let computerChoice = null
 let humanScore = 0;
 let computerScore = 0;
 
+const humanScoreText = document.querySelector(".humanScore");
+const computerScoreText = document.querySelector(".computerScore");
+const resultMessageText = document.querySelector(".roundResults p")
+
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
 
@@ -11,22 +15,24 @@ function getComputerChoice() {
 }
 
 function sendResultMessage(result) {
+    let resultMessage = null;
+    
     if (result == "humanWon") {
-        console.log(`You won - ${humanChoice} beats ${computerChoice}!`)
+        resultMessage = `You won - ${humanChoice} beats ${computerChoice}!`
 
         humanScore++;
     } else if (result == "humanLost") {
-        console.log(`You lost - ${computerChoice} beats ${humanChoice}.`)
+        resultMessage = `You lost - ${computerChoice} beats ${humanChoice}.`
 
         computerScore++;
     } else if (result == "tie") {
-        console.log(`It's a tie! The computer and the human both chose ${humanChoice}.`)
+        resultMessage = `It's a tie! The computer and the human both chose ${humanChoice}.`
     }
 
-    console.log(`Current score:
-        Computer: ${computerScore}
-        Human: ${humanScore}
-        `);
+    resultMessageText.textContent = resultMessage;
+
+    humanScoreText.textContent = humanScore;
+    computerScoreText.textContent = computerScore;
 }
 
 function playRound(humanChoice, computerChoice) {
